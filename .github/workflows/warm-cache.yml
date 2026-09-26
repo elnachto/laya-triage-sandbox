@@ -1,0 +1,17 @@
+name: Warm Laya cache
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  warm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: elnachto/laya-triage@main
+        with:
+          mode: warm-cache
