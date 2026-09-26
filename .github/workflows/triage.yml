@@ -8,13 +8,18 @@ on:
 
 permissions:
   contents: read
-  issues: write
-  pull-requests: write
 
 jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.LAYA_APP_CLIENT_ID }}
+          private-key: ${{ secrets.LAYA_APP_PRIVATE_KEY }}
+
       - uses: elnachto/laya-triage@main
         with:
           dry-run: "false"
+          github-token: ${{ steps.app-token.outputs.token }}
