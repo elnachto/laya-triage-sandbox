@@ -19,7 +19,7 @@ jobs:
           client-id: ${{ vars.LAYA_APP_CLIENT_ID }}
           private-key: ${{ secrets.LAYA_APP_PRIVATE_KEY }}
 
-      - uses: elnachto/laya-triage@main
+      - uses: elnachto/laya-triage@v1
         with:
           dry-run: "false"
           github-token: ${{ steps.app-token.outputs.token }}
