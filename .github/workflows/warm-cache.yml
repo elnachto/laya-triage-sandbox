@@ -15,3 +15,4 @@ jobs:
       - uses: elnachto/laya-triage@main
         with:
           mode: warm-cache
+          repo-memory: "true"
